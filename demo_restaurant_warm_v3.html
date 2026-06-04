@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kori & Neer — Coastal Kitchen, Bengaluru</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Hind:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--sand:#f7f0e6;--sand2:#efe5d4;--clay:#c45e2a;--clay2:#a34a1f;--turmeric:#d4933a;--ink:#1e1208;--muted:#6b4f35;--leaf:#3a5c2a;--border:rgba(30,18,8,0.1);}
+html{scroll-behavior:smooth;}
+body{font-family:'Hind',sans-serif;background:var(--sand);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;}
+
+.top-border{height:5px;background:repeating-linear-gradient(90deg,var(--clay) 0px,var(--clay) 20px,var(--turmeric) 20px,var(--turmeric) 40px,var(--leaf) 40px,var(--leaf) 60px,var(--turmeric) 60px,var(--turmeric) 80px);}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:var(--sand);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-logo{text-decoration:none;}
+.nav-logo-main{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:var(--ink);}
+.nav-logo-main span{color:var(--clay);}
+.nav-logo-sub{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);}
+.nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center;}
+.nav-links a{font-size:0.875rem;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{background:var(--clay)!important;color:white!important;padding:0.45rem 1.1rem;border-radius:1px;}
+.nav-cta:hover{background:var(--clay2)!important;}
+.nav-mobile-btn{display:none;background:var(--clay);color:white;padding:0.45rem 1rem;border-radius:1px;text-decoration:none;font-weight:600;font-size:0.8rem;}
+
+/* HERO — flex column, justify center so content is centred not at bottom */
+.hero{display:grid;grid-template-columns:1fr 1fr;}
+.hero-left{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;position:relative;overflow:hidden;min-height:520px;}
+.hero-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 10% 20%,rgba(212,147,58,0.15),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(196,94,42,0.2),transparent 50%);}
+.hero-pattern-dots{position:absolute;inset:0;opacity:0.06;background-image:radial-gradient(circle,#d4933a 1.5px,transparent 1.5px);background-size:24px 24px;}
+.hero-kolam{position:absolute;top:1.5rem;right:1.5rem;width:100px;height:100px;opacity:0.07;}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--turmeric);margin-bottom:1.25rem;position:relative;z-index:1;}
+.hero h1{font-family:'Lora',serif;font-size:3rem;font-weight:700;line-height:1.12;color:white;margin-bottom:1.1rem;letter-spacing:-0.01em;position:relative;z-index:1;}
+.hero h1 em{font-style:italic;color:var(--turmeric);}
+.hero-desc{font-size:0.93rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:2rem;max-width:380px;position:relative;z-index:1;}
+.hero-actions{display:flex;gap:1rem;position:relative;z-index:1;flex-wrap:wrap;}
+.btn-clay{background:var(--clay);color:white;padding:0.8rem 1.6rem;border-radius:1px;text-decoration:none;font-weight:600;font-size:0.875rem;transition:background 0.2s;display:inline-block;cursor:pointer;border:none;}
+.btn-clay:hover{background:var(--clay2);}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.75);padding:0.8rem 1.6rem;border-radius:1px;text-decoration:none;font-weight:500;font-size:0.875rem;border:1px solid rgba(255,255,255,0.2);transition:all 0.2s;display:inline-block;cursor:pointer;}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);color:white;}
+.hero-right{background:var(--sand2);display:flex;flex-direction:column;}
+.hero-right-top{flex:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#e8d5bc,#c9a87c);position:relative;overflow:hidden;min-height:320px;}
+.hero-right-top::before{content:'🍃';font-size:8rem;position:absolute;top:-1rem;right:-1rem;opacity:0.12;transform:rotate(-20deg);}
+.hero-right-top::after{content:'🌿';font-size:6rem;position:absolute;bottom:-0.5rem;left:-0.5rem;opacity:0.12;transform:rotate(15deg);}
+.hero-dish-wrap{text-align:center;position:relative;z-index:1;}
+.hero-dish-icon{font-size:4.5rem;}
+.hero-dish-label{font-family:'Lora',serif;font-size:0.95rem;font-style:italic;color:rgba(30,18,8,0.5);margin-top:0.5rem;}
+.hero-info-strip{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+.hero-info-cell{padding:1.1rem 1.5rem;border-right:1px solid var(--border);}
+.hero-info-cell:nth-child(2){border-right:none;}
+.hero-info-cell:nth-child(3){border-top:1px solid var(--border);}
+.hero-info-cell:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+.info-lbl{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.2rem;}
+.info-val{font-size:0.82rem;color:var(--ink);font-weight:500;}
+
+.divider{display:flex;align-items:center;gap:1.5rem;padding:2rem 3rem;max-width:1100px;margin:0 auto;}
+.divider-line{flex:1;height:1px;background:var(--border);}
+.divider-motif{font-size:1rem;color:var(--clay);opacity:0.4;}
+
+/* ABOUT */
+.about{padding:4.5rem 3rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.section-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--clay);margin-bottom:0.6rem;}
+.section-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:1.25rem;color:var(--ink);}
+.about p{font-size:0.93rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;}
+.about-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.25rem;}
+.pill{font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:999px;border:1px solid var(--border);color:var(--muted);}
+.pill.green{border-color:rgba(58,92,42,0.3);color:var(--leaf);}
+.pill.clay{border-color:rgba(196,94,42,0.3);color:var(--clay);}
+.about-cards{display:flex;flex-direction:column;gap:0.9rem;}
+.about-card{background:white;border:1px solid var(--border);padding:1.25rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;}
+.about-card-icon{font-size:1.6rem;flex-shrink:0;}
+.about-card h4{font-family:'Lora',serif;font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;color:var(--ink);}
+.about-card p{font-size:0.83rem;color:var(--muted);line-height:1.6;margin:0;}
+
+/* MENU */
+.menu-wrap{background:var(--ink);padding:4.5rem 3rem;}
+.menu-inner{max-width:1100px;margin:0 auto;}
+.menu-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;}
+.menu-label{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--turmeric);margin-bottom:0.6rem;}
+.menu-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:700;color:white;line-height:1.15;}
+.menu-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+.menu-tab{padding:0.4rem 1rem;border-radius:1px;font-size:0.8rem;font-weight:500;cursor:pointer;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.45);background:transparent;transition:all 0.2s;font-family:'Hind',sans-serif;}
+.menu-tab.active,.menu-tab:hover{background:var(--clay);color:white;border-color:var(--clay);}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05);}
+.menu-item{background:var(--ink);padding:1.75rem;border:1px solid rgba(255,255,255,0.04);transition:background 0.2s;}
+.menu-item:hover{background:rgba(255,255,255,0.03);}
+.menu-item-cat{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--turmeric);margin-bottom:0.6rem;}
+.menu-item h3{font-family:'Lora',serif;font-size:1.1rem;color:white;margin-bottom:0.4rem;font-weight:600;}
+.menu-item p{font-size:0.82rem;color:rgba(255,255,255,0.38);line-height:1.6;margin-bottom:1rem;}
+.menu-item-footer{display:flex;align-items:center;justify-content:space-between;}
+.menu-price{font-size:1rem;color:var(--turmeric);font-weight:600;}
+.veg-dot{width:14px;height:14px;border:1.5px solid #3a8c3a;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.veg-dot::before{content:'';width:6px;height:6px;background:#3a8c3a;border-radius:50%;}
+.nonveg-dot{width:14px;height:14px;border:1.5px solid #c43a3a;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:6px;color:#c43a3a;}
+
+/* TESTIMONIALS */
+.testi-wrap{padding:4.5rem 3rem;max-width:1100px;margin:0 auto;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.testi-card{background:white;border:1px solid var(--border);padding:2rem;position:relative;}
+.testi-card::before{content:'\201C';font-family:'Lora',serif;font-size:4.5rem;color:var(--sand2);position:absolute;top:0.25rem;left:1.25rem;line-height:1;}
+.testi-stars{color:var(--turmeric);margin-bottom:0.75rem;font-size:0.85rem;letter-spacing:2px;}
+.testi-text{font-size:0.88rem;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:1rem;position:relative;z-index:1;}
+.testi-author{font-size:0.78rem;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:0.08em;}
+.testi-loc{font-size:0.73rem;color:var(--muted);}
+
+/* CTA / RESERVE */
+.cta-wrap{background:var(--sand2);border-top:4px solid var(--clay);padding:4.5rem 3rem;text-align:center;}
+.cta-icon{font-size:2.25rem;margin-bottom:1.25rem;}
+.cta-wrap h2{font-family:'Lora',serif;font-size:2.6rem;font-weight:700;color:var(--ink);margin-bottom:0.75rem;line-height:1.2;}
+.cta-wrap h2 em{font-style:italic;color:var(--clay);}
+.cta-wrap p{font-size:0.93rem;color:var(--muted);margin-bottom:2.25rem;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.75;}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-clay-lg{background:var(--clay);color:white;padding:0.95rem 2.25rem;border-radius:1px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s;display:inline-block;}
+.btn-clay-lg:hover{background:var(--clay2);}
+.btn-outline-dark{background:transparent;color:var(--ink);padding:0.95rem 2.25rem;border-radius:1px;text-decoration:none;font-weight:500;font-size:0.9rem;border:1.5px solid var(--border);transition:all 0.2s;display:inline-block;}
+.btn-outline-dark:hover{border-color:var(--ink);}
+
+footer{background:var(--ink);padding:2.25rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-brand{font-family:'Lora',serif;font-size:1.05rem;color:rgba(255,255,255,0.6);}
+.footer-brand span{color:var(--turmeric);}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);margin-top:0.25rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--turmeric);}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;align-items:center;justify-content:center;padding:1.5rem;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--sand);max-width:480px;width:100%;border-radius:2px;padding:2.5rem;position:relative;max-height:90vh;overflow-y:auto;}
+.modal h3{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;color:var(--ink);}
+.modal p{font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem;}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted);}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.4rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.7rem 0.9rem;border:1px solid var(--border);border-radius:1px;font-family:'Hind',sans-serif;font-size:0.9rem;background:white;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--clay);}
+.form-group textarea{resize:vertical;min-height:80px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.modal-submit{width:100%;padding:0.9rem;background:var(--clay);color:white;border:none;border-radius:1px;font-family:'Hind',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;margin-top:0.5rem;transition:background 0.2s;}
+.modal-submit:hover{background:var(--clay2);}
+.modal-success{display:none;text-align:center;padding:1rem 0;}
+.modal-success .tick{font-size:3rem;margin-bottom:1rem;}
+.modal-success h4{font-family:'Lora',serif;font-size:1.3rem;color:var(--ink);margin-bottom:0.5rem;}
+.modal-success p{font-size:0.88rem;color:var(--muted);}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .about{grid-template-columns:1fr;gap:2.5rem;}
+  .menu-grid{grid-template-columns:1fr 1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-mobile-btn{display:inline-block;}
+  .hero-left{padding:3rem 1.5rem;min-height:auto;}
+  .hero h1{font-size:2.3rem;}
+  .about,.testi-wrap,.cta-wrap{padding:3.5rem 1.5rem;}
+  .menu-wrap{padding:3.5rem 1.5rem;}
+  .menu-grid{grid-template-columns:1fr;}
+  footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start;}
+  .divider{padding:1.25rem 1.5rem;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:1.9rem;}
+  .hero-actions{flex-direction:column;}
+  .cta-actions{flex-direction:column;align-items:center;}
+  .cta-actions a{width:100%;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-border"></div>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-main">Kori <span>&</span> Neer</div>
+    <div class="nav-logo-sub">Coastal Kitchen · Bengaluru</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#reserve" class="nav-cta">Reserve a Table</a></li>
+  </ul>
+  <a href="#reserve" class="nav-mobile-btn">Reserve</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pattern-dots"></div>
+    <svg class="hero-kolam" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="45" stroke="white" stroke-width="1"/>
+      <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1"/>
+      <circle cx="50" cy="50" r="15" stroke="white" stroke-width="1"/>
+      <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="1"/>
+      <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="1"/>
+      <line x1="18" y1="18" x2="82" y2="82" stroke="white" stroke-width="0.75"/>
+      <line x1="82" y1="18" x2="18" y2="82" stroke="white" stroke-width="0.75"/>
+    </svg>
+    <div class="hero-eyebrow">Mangalorean & Coorgi Cuisine · Indiranagar, Bengaluru</div>
+    <h1>Tastes like <em>home,<br/>made with love.</em></h1>
+    <p class="hero-desc">Three generations of coastal Karnataka recipes — brought to Bengaluru with the same love, the same spices, and the same hands that made them first.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-clay" onclick="openModal();return false;">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">Browse Menu</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-top">
+      <div class="hero-dish-wrap">
+        <div class="hero-dish-icon">🍛</div>
+        <div class="hero-dish-label">Kori Rotti — Our Signature</div>
+      </div>
+    </div>
+    <div class="hero-info-strip">
+      <div class="hero-info-cell"><div class="info-lbl">Location</div><div class="info-val">12th Main, Indiranagar</div></div>
+      <div class="hero-info-cell"><div class="info-lbl">Hours</div><div class="info-val">12pm – 11pm Daily</div></div>
+      <div class="hero-info-cell"><div class="info-lbl">Phone</div><div class="info-val">+91 98450 12345</div></div>
+      <div class="hero-info-cell"><div class="info-lbl">Since</div><div class="info-val">Est. 2019</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Recipes from the coast, a table in the city.</h2>
+    <p>Kori & Neer was born from a craving — the kind only your grandmother's kori rotti on a rainy Mangalore afternoon can fix. We brought that feeling to Bengaluru.</p>
+    <p>Every dish is made from scratch. Our coconut is freshly grated each morning. Our spice blends are stone-ground in-house. Our neer dosa batter ferments overnight — the way it always should.</p>
+    <p>No fusion experiments. No shortcuts. Just honest coastal food, served warm, the way it was meant to be eaten.</p>
+    <div class="about-pills">
+      <span class="pill clay">Mangalorean</span><span class="pill clay">Coorgi</span>
+      <span class="pill green">Fresh Daily</span><span class="pill green">Family Recipes</span>
+      <span class="pill">Est. 2019</span>
+    </div>
+  </div>
+  <div class="about-cards">
+    <div class="about-card"><div class="about-card-icon">🌴</div><div><h4>Sourced from the Coast</h4><p>Coconut, kokum, kachampuli — all from coastal Karnataka suppliers. Nothing compromised.</p></div></div>
+    <div class="about-card"><div class="about-card-icon">🔥</div><div><h4>Made from Scratch, Daily</h4><p>No pre-made pastes. Every masala ground fresh, every batter fermented overnight.</p></div></div>
+    <div class="about-card"><div class="about-card-icon">👨‍👩‍👧</div><div><h4>Family at the Heart</h4><p>Run by the Shetty family since 2019. The recipes are Ajji's. The welcome is ours.</p></div></div>
+    <div class="about-card"><div class="about-card-icon">⭐</div><div><h4>500+ Five-Star Reviews</h4><p>Bengaluru's most-loved coastal kitchen on Google and Zomato — rated #1 in Indiranagar.</p></div></div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+<!-- MENU -->
+<div class="menu-wrap" id="menu">
+  <div class="menu-inner">
+    <div class="menu-header">
+      <div><div class="menu-label">What We Serve</div><div class="menu-title">Signatures from the kitchen.</div></div>
+    </div>
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="filterMenu('all',this)">All</button>
+      <button class="menu-tab" onclick="filterMenu('main',this)">Main Course</button>
+      <button class="menu-tab" onclick="filterMenu('seafood',this)">Seafood</button>
+      <button class="menu-tab" onclick="filterMenu('veg',this)">Vegetarian</button>
+      <button class="menu-tab" onclick="filterMenu('breakfast',this)">Breakfast</button>
+      <button class="menu-tab" onclick="filterMenu('dessert',this)">Dessert</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <div class="menu-item" data-cat="main"><div class="menu-item-cat">Signature · Main Course</div><h3>Kori Rotti</h3><p>Slow-cooked chicken in coconut masala with crisp wafer-thin rice rotis. The dish that started it all.</p><div class="menu-item-footer"><span class="menu-price">₹380</span><div class="nonveg-dot">▲</div></div></div>
+      <div class="menu-item" data-cat="seafood"><div class="menu-item-cat">Seafood · Main Course</div><h3>Kane Rava Fry</h3><p>Lady fish in red chilli and turmeric, coated in semolina and pan-fried until perfectly crisp.</p><div class="menu-item-footer"><span class="menu-price">₹420</span><div class="nonveg-dot">▲</div></div></div>
+      <div class="menu-item" data-cat="breakfast"><div class="menu-item-cat">Breakfast · Any Time</div><h3>Neer Dosa Set</h3><p>Delicate rice crepes with coconut chutney and choice of chicken or prawn curry.</p><div class="menu-item-footer"><span class="menu-price">₹220</span><div class="nonveg-dot">▲</div></div></div>
+      <div class="menu-item" data-cat="main"><div class="menu-item-cat">Coorgi · Specialty</div><h3>Pandi Curry</h3><p>Slow-cooked pork with kachampuli vinegar and aromatic Coorgi spices. Served with akki rotti.</p><div class="menu-item-footer"><span class="menu-price">₹460</span><div class="nonveg-dot">▲</div></div></div>
+      <div class="menu-item" data-cat="veg"><div class="menu-item-cat">Vegetarian · Main Course</div><h3>Padengi Gassi</h3><p>Sprouted brown chickpeas in rich coconut and tamarind gravy. A Mangalorean staple done right.</p><div class="menu-item-footer"><span class="menu-price">₹280</span><div class="veg-dot"></div></div></div>
+      <div class="menu-item" data-cat="dessert"><div class="menu-item-cat">Dessert · Sweet</div><h3>Payasa</h3><p>Coconut milk kheer with vermicelli and jaggery, tempered with cashews and raisins.</p><div class="menu-item-footer"><span class="menu-price">₹140</span><div class="veg-dot"></div></div></div>
+      <div class="menu-item" data-cat="seafood"><div class="menu-item-cat">Seafood · Starter</div><h3>Prawn Sukka</h3><p>Tiger prawns tossed in dry coconut masala with curry leaves and mustard. A coastal classic starter.</p><div class="menu-item-footer"><span class="menu-price">₹340</span><div class="nonveg-dot">▲</div></div></div>
+      <div class="menu-item" data-cat="veg"><div class="menu-item-cat">Vegetarian · Breakfast</div><h3>Akki Rotti</h3><p>Crisp rice flour flatbread with onion, green chilli and fresh coriander. Served with coconut chutney.</p><div class="menu-item-footer"><span class="menu-price">₹160</span><div class="veg-dot"></div></div></div>
+      <div class="menu-item" data-cat="main"><div class="menu-item-cat">Main Course · Chicken</div><h3>Chicken Ghee Roast</h3><p>Byadgi chilli marinated chicken roasted on high heat with ghee and spices. Bold, smoky, unforgettable.</p><div class="menu-item-footer"><span class="menu-price">₹400</span><div class="nonveg-dot">▲</div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+<!-- TESTIMONIALS -->
+<section class="testi-wrap" id="reviews">
+  <div class="section-label">Guest Reviews</div>
+  <div class="section-title">What our guests say.</div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The kori rotti here is exactly like what I grew up eating in Mangalore. I've been coming every weekend for six months. This place is a gem."</p><div class="testi-author">Priya S.</div><div class="testi-loc">Indiranagar</div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Best coastal food in Bengaluru, full stop. The kane fry is outstanding — crispy, fresh, perfectly spiced. Brought my whole family and everyone loved it."</p><div class="testi-author">Rohan M.</div><div class="testi-loc">Koramangala</div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"We hosted a team lunch here and it was a massive hit. Warm staff, fast service, and the pandi curry was absolutely unforgettable."</p><div class="testi-author">Aditya K.</div><div class="testi-loc">Whitefield</div></div>
+  </div>
+</section>
+
+<!-- RESERVE CTA -->
+<div class="cta-wrap" id="reserve">
+  <div class="cta-icon">🪔</div>
+  <h2>Come eat with <em>us.</em></h2>
+  <p>Walk-ins always welcome. Reservations recommended on Friday and Saturday evenings. We'd love to feed you.</p>
+  <div class="cta-actions">
+    <a href="#" class="btn-clay-lg" onclick="openModal();return false;">📅 Reserve a Table</a>
+    <a href="tel:+919845012345" class="btn-outline-dark">📞 Call Us</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand">Kori <span>&</span> Neer</div>
+    <p>12th Main, Indiranagar, Bengaluru · Open Daily 12pm–11pm</p>
+  </div>
+  <div class="footer-links">
+    <a href="#about">Our Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#" onclick="openModal();return false;">Reserve</a>
+  </div>
+</footer>
+
+<!-- RESERVATION MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalForm">
+      <h3>Reserve a Table</h3>
+      <p>Fill in your details and we'll confirm your booking via WhatsApp or call.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Priya Shetty"/></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 98000 00000"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date</label><input type="date"/></div>
+        <div class="form-group"><label>Time</label><select><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option><option>9:00 PM</option><option>10:00 PM</option></select></div>
+      </div>
+      <div class="form-group"><label>Number of Guests</label><select><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5–6 Guests</option><option>7–10 Guests</option><option>Large Group (10+)</option></select></div>
+      <div class="form-group"><label>Special Requests (optional)</label><textarea placeholder="Allergies, occasion, seating preference..."></textarea></div>
+      <button class="modal-submit" onclick="submitReservation()">Confirm Reservation</button>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="tick">🪔</div>
+      <h4>Reservation Received!</h4>
+      <p>We'll confirm your table via WhatsApp or phone within 30 minutes. See you soon!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(){document.getElementById('modalOverlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';document.getElementById('modalForm').style.display='block';document.getElementById('modalSuccess').style.display='none';}
+function closeOnOverlay(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+function submitReservation(){document.getElementById('modalForm').style.display='none';document.getElementById('modalSuccess').style.display='block';}
+function filterMenu(cat,btn){
+  document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.menu-item').forEach(item=>{
+    item.style.display=(cat==='all'||item.dataset.cat===cat)?'block':'none';
+  });
+}
+const mBtn=document.querySelector('.nav-mobile-btn');
+function toggleNav(){mBtn.style.display=window.innerWidth<=768?'inline-block':'none';}
+toggleNav();window.addEventListener('resize',toggleNav);
+</script>
+</body>
+</html>
